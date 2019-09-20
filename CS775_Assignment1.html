@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS 775: Assignment 1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Dibyendu,db,Dibyendu Mondal,IITB,IIT Bombay">
+	<meta name="description" content="CS 775: Assignment 1">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.css">
+	<link rel="icon" href="iitb.png" type="image/x-icon"/>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<a class="navbar-brand" style="position:absloute;width: 100%;left: 0;text-align: center;margin: auto;">CS 775: Assignment 1 Report</a>	
+	</nav>
+	<div class="container-fluid" style="padding-top:100px">
+		<h4 class="text-center"><u>Rendering</u></h4>
+		<h4>Our scene in different camera positions: </h4>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="3.png" width="900" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Position 1</h6>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="4.png" width="900" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Position 2</h6>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="5.png" width="900" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Position 3</h6>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="6.png" width="900" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Position 4</h6>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="7.png" width="900" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Position 5</h6>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="8.png" width="900" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Some Random Positions</h6>
+		</div>
+	</div>
+	<div class="container">
+		<h4>Basic Working Instructions: </h4>
+		<ul style="line-height:2.5em">
+			<li><h4>First we run the shell script using <code>./make.sh</code>.</h4></li>
+			<li><h4>Run <code>display droids.tiff </code> to open the final image formed.</h4></li>
+			<li><h4>We have 2 bots. One humanoid (Our own creation) and the other non-humanoid (BB-8).</h4></li>
+			<li><h4>There's 1 metallic and 1 transparent ball.</h4></li>
+		</ul>
+	</div>
+	<div class="container">
+		<h4>Features: </h4>
+		<ul style="line-height:2.5em">
+			<li><h4>metal.sl and transparent.sl are shaders to implement metallic and transparent surfaces.</h4></li>
+			<li><h4>We used photon mapping to show effect of caustics.</h4></li>
+			<li><h4>We used a large number of point lights near each other for area light. This also generated soft shadows.</h4></li>
+			<li><h4>For color bleeding, instead of direct illumination, we considered indirect illumination</h4></li>
+		</ul>
+	</div>
+	<div class="container">
+		<h4>Credits: </h4>
+		<ul style="line-height:2.5em">
+			<li><h4><a href="https://renderman.pixar.com/resources/current/RenderMan/home.html" target="_blank">RenderMan Docs</a></h4></li>
+			<li><h4>Stanford Box</h4></li>
+			<li><h4>Ranveer Aggarwal & Abhinav Gupta</h4></li>
+		</ul>
+	</div>
+	<div class="container">
+		<h4>Team Members: </h4>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="Dibyendu.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Dibyendu Mondal</h4>
+			<h4>130050046</h4>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="anand.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Anand Bhoraskar</h4>
+			<h4>130050025</h4>
+		</div>
+	</div>
+</body>
+</html>

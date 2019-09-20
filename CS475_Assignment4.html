@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS 475: Assignment 4</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Dibyendu,db,Dibyendu Mondal,IITB,IIT Bombay">
+	<meta name="description" content="CS 475: Assignment 4">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.css">
+	<link rel="icon" href="iitb.png" type="image/x-icon"/>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<a class="navbar-brand" style="position:absloute;width: 100%;left: 0;text-align: center;margin: auto;">CS 475: Assignment 4 Report</a>	
+	</nav>
+	<div class="container-fluid" style="padding-top:100px">
+		<h4 class="text-center"><u>Droids - Animation</u></h4>
+		<h4>Our bots in different lighting: </h4>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="light1.png" width="454" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Bots with 1 light on</h6>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="light2.png" width="454" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Bots with both lights on</h6>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="spotlight.png" width="454" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Bots with just spotlight</h6>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div style="text-align:center">
+			<h4>Our Animation: </h4>
+			<video width="560" height="440" controls>
+				<source src="StarWarsMovie.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+				<source src="StarWarsMovie.ogv" type='video/ogg; codecs="theora, vorbis"'>
+			</video>
+		</div>
+	</div>
+	<div class="container">
+		<h4>Basic Working Instructions: </h4>
+		<ul style="line-height:2.5em">
+			<li><h4>First we run the Makefile using <code>make</code> and the run the executable <code>./Assignment4</code>.</h4></li>
+			<li><h4>Run <code>./make_movie.sh</code> to make the movie.</h4></li>
+			<li><h4>We have 2 bots. One humanoid (C3PO) and the other non-humanoid (BB-8).</h4></li>
+			<li><h4>We can use the keys <kbd>Up Arrow</kbd> and <kbd>Down Arrow</kbd> to rotate about the X-axis, <kbd>Left Arrow</kbd> and <kbd>Right Arrow</kbd> to rotate about the Y-axis, <kbd>PgUp</kbd> and <kbd>PgDn</kbd> to rotate about the Z-axis.</h4></li>
+			<li><h4>We can select each joint of the 2 bots by pressing the following keys:<br>
+			For C3PO - </h4></li>
+			<h5><ul style="line-height:1.5em">
+				<li><kbd>1</kbd> - select right hand</li>
+				<li><kbd>2</kbd> - select right elbow</li>
+				<li><kbd>3</kbd> - select left arm</li>
+				<li><kbd>4</kbd> - select left elbow</li>
+				<li><kbd>5</kbd> - select right leg</li>
+				<li><kbd>6</kbd> - select right knee</li>
+				<li><kbd>7</kbd> - select left leg</li>
+				<li><kbd>8</kbd> - select left knee</li>
+			</ul></h5>
+			<h4>For BB-8 -</h4>
+			<h5><ul style="line-height:1.5em">
+				<li><kbd>9</kbd> - select body</li>
+				<li><kbd>0</kbd> - select head</li>
+				<li><kbd>c</kbd> - select goggles</li>
+			</ul></h5>
+			<li><h4>We have constrained all the joints to move only in valid angles.</h4></li>
+			<li><h4>After selecting a bot (by selecting some joint) we can use the keys <kbd>V</kbd>, <kbd>B</kbd>, <kbd>N</kbd>, <kbd>M</kbd>, <kbd>G</kbd> and <kbd>H</kbd> to translate the bot in +ve and -ve X, Y and Z directions respectively.</h4></li>
+			<li><h4>There are 2 lights and 1 spotlight.</h4></li>
+			<li><h4>Lights can be enabled or disabled using the <kbd>+</kbd> and <kbd>-</kbd> keys.</h4></li>
+			<li><h4>The spotlight can be enabled or disabled be pressing <kbd>L</kbd>.</h4></li>
+			<li><h4>Perspective mode can be enabled by pressing <kbd>P</kbd>.</h4></li>
+			<li><h4>We can rotate the camera in X,Y and Z directions by pressing the keys <kbd>W</kbd>, <kbd>S</kbd>, <kbd>A</kbd>, <kbd>D</kbd>, <kbd>Q</kbd>, <kbd>E</kbd> respectively.</h4></li>
+			<li><h4>We can save a particular frame by pressing <kbd>J</kbd> and playback the saved keyframes by pressing <kbd>K</kbd>.</h4></li>
+			<li><h4>The final movie movie.mp4 is inside the folder video.</h4></li>
+		</ul>
+	</div>
+	<div class="container">
+		<h4>Team Members: </h4>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="Dibyendu.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Dibyendu Mondal</h4>
+			<h4>130050046</h4>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="anand.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Anand Bhoraskar</h4>
+			<h4>130050025</h4>
+		</div>
+	</div>
+</body>
+</html>

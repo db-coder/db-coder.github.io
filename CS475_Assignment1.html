@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS 475: Assignment 1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Dibyendu,db,Dibyendu Mondal,IITB,IIT Bombay">
+	<meta name="description" content="CS 475: Assignment 1">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.css">
+	<link rel="icon" href="iitb.png" type="image/x-icon"/>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<a class="navbar-brand" style="position:absloute;width: 100%;left: 0;text-align: center;margin: auto;">CS 475: Assignment 1 Report</a>	
+	</nav>
+	<div class="container" style="padding-top:100px">
+		<h4 class="text-center"><u>Modelling-Viewing Pipeline : Modelling</u></h4>
+		<h4>The models we made: </h4>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="shampoo.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Bottle</h6>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="rose.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Rose</h6>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="goggles.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Goggles</h6>
+		</div>
+	</div>
+	<div class="container">
+		<h4>Basic Working Instructions: </h4>
+		<ul style="line-height:2.5em">
+			<li><h4>First we run the Makefile using <code>make</code> and the run the executable <code>./assign1</code>.</h4></li>
+			<li><h4>We are in the Modelling mode at the start. We can draw polygons by doing <kbd>left click</kbd> on the screen. For removing points use <kbd>shift + left click</kbd>.</h4></li>
+			<li><h4>We can save the model in a .raw format by pressing <kbd>K</kbd>. The points are stored in X,Y,Z,R,G,B format.</h4></li>
+			<li><h4>Now we can go to the Inspection mode by pressing <kbd>I</kbd> and then use keys <kbd>Up Arrow</kbd> and <kbd>Down Arrow</kbd> to rotate about the X-axis, <kbd>Left Arrow</kbd> and <kbd>Right Arrow</kbd> to rotate about the Y-axis, <kbd>PgUp</kbd> and <kbd>PgDn</kbd> to rotate about the Z-axis,</h4></li>
+			<li><h4>We can also translate the object in the Inspection mode using keys <kbd>W</kbd>, <kbd>S</kbd>, <kbd>A</kbd>, <kbd>D</kbd>, <kbd>Z</kbd>, <kbd>X</kbd> to translate in +ve or -ve Y, X and Z axis respectively.</h4></li>
+			<li><h4>To load a file press <kbd>L</kbd> and then enter filename (with the format). This is done in Inspection mode.</h4></li>
+			<li><h4>The function <code>centroid</code> in the file <code>centroidFunctions.cpp</code> finds the centroid of the object. On pressing <kbd>R</kbd> the centroid of the object is shifted to the origin.</h4></li>
+			<li><h4>We can go back to the Modelling view by pressing <kbd>M</kbd> and then can start drawing new models directly.</h4></li>
+		</ul>
+	</div>
+	<div class="container">
+		<h4>Team Members: </h4>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="Dibyendu.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Dibyendu Mondal</h4>
+			<h4>130050046</h4>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="anand.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Anand Bhoraskar</h4>
+			<h4>130050025</h4>
+		</div>
+	</div>
+</body>
+</html>

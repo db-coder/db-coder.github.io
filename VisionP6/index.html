@@ -1,0 +1,344 @@
+<html>
+<head>
+<title>Deep Learning Project</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>  
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;	
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 1160px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td img {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+    <div id="headersub">
+        <h1><span style="color: #DE3737">Dibyendu Mondal</span></h1>
+    </div>
+</div>
+<div class="container">
+    <h2> Project 6: Deep Learning</h2>
+    <p>This project is an introduction to deep learning tools for computer vision. I design and train deep convolutional networks for scene recognition using the MatConvNet toolbox. This project has 2 components:</p>
+
+    <ol>
+        <li>Training a deep network from scratch</li>
+        <ol>
+            <li>Jittering</li>
+            <li>Zero-centering images</li>
+            <li>Regularizing the network</li>
+            <li>Making the network deep</li>
+            <li>Batch Normalization</li>
+        </ol>
+        <li>Fine-tuning a pre-trained deep network</li>
+    </ol>
+    <h3>Part 1: Training a deep network from scratch</h3>
+    These are the results for the given base network. The lowest validation error is 0.736667 which means the accuracy is ~26.4%.
+    <div align="center">
+        <img src="Images/default_error.jpg" />
+        <img src="Images/default_filters.jpg" />
+        <p style="font-size: 24px">NumEpoches = 30</p>
+    </div>
+    <h4>Jittering</h4>
+    I mirrored half of the images for this. The code for jittering is shown here:
+    <pre><code>
+    for i = 1:size(im,4)
+        if rand() < 0.5
+            im(:,:,:,i) = fliplr(im(:,:,:,i));
+        end
+    end
+	</code></pre>
+    <h4>Results</h4>
+    The lowest validation error is 0.763333 which means the accuracy is ~23.6%.
+    <div align="center">
+        <img src="Images/jitter_error_30.jpg" />
+        <img src="Images/jitter_filters_30.jpg" />
+        <p style="font-size: 24px">NumEpoches = 30</p>
+    </div>
+    For better accuracy, I tried increasing the number of epochs to 150. The lowest validation error is 0.631333 which means the accuracy is ~36.9%.
+    <div align="center">
+        <img src="Images/jitter_error_150.jpg" />
+        <img src="Images/jitter_filters_150.jpg" />
+        <p style="font-size: 24px">NumEpoches = 150</p>
+    </div>
+    <h4>Zero-centering images</h4>
+    I zero-centered the images by subtracting the mean from all the pixels. The code for zero-centering is shown here:
+    <pre><code>
+    cur_image = cur_image - mean(mean(cur_image));
+	</code></pre>
+    <h4>Results</h4>
+    The lowest validation error is 0.486 which means the accuracy is ~51.4%.
+    <div align="center">
+        <img src="Images/zero_error.jpg" />
+        <img src="Images/zero_filters.jpg" />
+        <p style="font-size: 24px">NumEpoches = 30</p>
+    </div>
+    <h4>Regularizing the network</h4>
+    I regularized the network which randomly turns off network connections at training time to fight overfitting. This prevents a unit in one layer from relying too strongly on a single unit in the previous layer. The code for regularization is shown here:
+    <pre><code>
+    net.layers{end+1} = struct('type', 'dropout', 'rate', 0.5);
+	</code></pre>
+    <h4>Results</h4>
+    The lowest validation error is 0.474667 which means the accuracy is ~52.6%.
+    <div align="center">
+        <img src="Images/reg_error.jpg" />
+        <img src="Images/reg_filters.jpg" />
+        <p style="font-size: 24px">NumEpoches = 30</p>
+    </div>
+    <h4>Making the network deep</h4>
+    Our convolutional network to this point isn't "deep". It has two layers with learned weights. Contrast this with the example networks for MNIST and CIFAR in MatConvNet which contain 4 and 5 layers, respectively. AlexNet and VGG-F contain 8 layers. The VGG "very deep" networks contain 16 and 19 layers. ResNet contains up to 150 layers. 
+    I deepened the network by adding one conv, one pool and one relu layer. The code for making the network deep is shown here:
+    <pre><code>
+    net.layers{end+1} = struct('type', 'conv', ...
+                               'weights', {{f*randn(5,5,10,10, 'single'), zeros(1, 10, 'single')}}, ...
+                               'stride', 1, ...
+                               'pad', 0, ...
+                               'name', 'conv1') ;
+                       
+    net.layers{end+1} = struct('type', 'pool', ...
+                               'method', 'max', ...
+                               'pool', [3 3], ...
+                               'stride', 2, ...
+                               'pad', 0) ;
+    net.layers{end+1} = struct('type', 'relu') ;
+	</code></pre>
+    <h4>Results</h4>
+    The lowest validation error is 0.552 which means the accuracy is ~44.8%.
+    <div align="center">
+        <img src="Images/deep_error_30.jpg" />
+        <img src="Images/deep_filters_30.jpg" />
+        <p style="font-size: 24px">NumEpoches = 30</p>
+    </div>
+    For better accuracy, I tried increasing the number of epochs to 150. The lowest validation error is 0.437333 which means the accuracy is ~56.3%.
+    <div align="center">
+        <img src="Images/deep_error_150.png" width="1100"/>
+        <img src="Images/deep_filters_150.jpg" />
+        <p style="font-size: 24px">NumEpoches = 150</p>
+    </div>
+    <h4>Batch Normalization</h4>
+    It is harder for the gradients to pass from the last layer all the way to the first in a deeper architecture. Normalization can help. 
+    In particular, I added a batch normalization layer after each convolutional layer except for the last. The code for making the network deep is shown here:
+    <pre><code>
+    net = insertBnorm(net, 1);
+    net = insertBnorm(net, 5);
+	</code></pre>
+    <h4>Results</h4>
+    The lowest validation error is 0.516667 which means the accuracy is ~48.4%. 
+    <div align="center">
+        <img src="Images/norm_error_30.jpg" />
+        <img src="Images/norm_filters_30.jpg" />
+        <p style="font-size: 24px">NumEpoches = 30</p>
+    </div>
+    For better accuracy, I tried increasing the number of epochs to 50. The lowest validation error is 0.448 which means the accuracy is ~55.2%.
+    <div align="center">
+        <img src="Images/norm_error_50.jpg" />
+        <img src="Images/norm_filters_50.jpg" />
+        <p style="font-size: 24px">NumEpoches = 50</p>
+    </div>
+    <h3>Part 2: Fine-tuning a pre-trained deep network</h3>
+    For Part 2 of this project I fine-tune the VGG-F network to perform scene recognition. 
+    In this scenario I take an existing network, replace the final layer (or more) with random weights, and train the entire network again with images and ground truth labels for the recognition task. 
+    We are effectively treating the pre-trained deep network as a better initialization than the random weights used when training from scratch. When we don't have enough training data to train a complex network from scratch (e.g. with the 15 scene database) this is an attractive option. <br><br>
+    The final two layers, fc8 and the softmax layer, are removed and specified again using the same syntax seen in Part 1. The original fc8 had an input data depth of 4096 and an output data depth of 1000 (for 1000 ImageNet categories). We need the output depth to be 15, instead. The dropout layers used to train VGG-F are missing from the pretrained model (probably because they're not used at test time). I added both of them back in between fc6 and fc7 and between fc7 and fc8.
+    <pre><code>
+    f = 1/100;
+    layers_top = net.layers(1,1:17);
+    layers_end = net.layers(1,18:19);
+    net.layers = layers_top;
+    net.layers{end+1} = struct('type','dropout','rate',0.5);
+    net.layers{end+1} = layers_end{1,1};
+    net.layers{end+1} = layers_end{1,2};
+    net.layers{end+1} = struct('type','dropout','rate',0.5);
+    net.layers{end+1} = struct('weights', {{f*randn(3,3,4096,15, 'single'), zeros(1, 15, 'single')}}, ...
+                               'pad', 1, ...
+                               'type', 'conv',...
+                               'name', 'fc8',...
+                               'stride', 1) ;
+    net.layers{end+1} = struct('type', 'softmaxloss', 'name','prob') ;    
+    </code></pre>
+    The input images are resized to 224x224. VGG-F accepts 3 channel (RGB) images. The 15 scene database contains grayscale images. I concatenated the grayscale images with themselves (e.g. cat(3, im, im, im)) to make an RGB image. VGG-F expects input images to be normalized by subtracting the average image, just like in Part 1. VGG-F provides a 224x224x3 average image in net.meta.normalization.averageImage.
+    <pre><code>
+    SceneJPGsPath = '../data/15SceneData/';
+    num_train_per_category = 100;
+    num_test_per_category  = 100; %can be up to 110
+    total_images = 15*num_train_per_category + 15 * num_test_per_category;
+    image_size = [224 224]; %downsampling data for speed and because it hurts
+    % accuracy surprisingly little
+    imdb.images.data   = zeros(image_size(1), image_size(2), 1, total_images, 'single');
+    imdb.images.labels = zeros(1, total_images, 'single');
+    imdb.images.set    = zeros(1, total_images, 'uint8');
+    image_counter = 1;
+    categories = {'bedroom', 'coast', 'forest', 'highway', ...
+                  'industrial', 'insidecity', 'kitchen', ...
+                  'livingroom', 'mountain', 'office', 'opencountry', ...
+                  'store', 'street', 'suburb', 'tallbuilding'};
+          
+    sets = {'train', 'test'};
+    fprintf('Loading %d train and %d test images from each category\n', ...
+              num_train_per_category, num_test_per_category)
+    fprintf('Each image will be resized to %d by %d\n', image_size(1),image_size(2));
+    %Read each image and resize it to image_size
+    for set = 1:length(sets)
+        for category = 1:length(categories)
+            cur_path = fullfile( SceneJPGsPath, sets{set}, categories{category});
+            cur_images = dir( fullfile( cur_path,  '*.jpg') );
+        
+            if(set == 1)
+                fprintf('Taking %d out of %d images in %s\n', num_train_per_category, length(cur_images), cur_path);
+                cur_images = cur_images(1:num_train_per_category);
+            elseif(set == 2)
+                fprintf('Taking %d out of %d images in %s\n', num_test_per_category, length(cur_images), cur_path);
+                cur_images = cur_images(1:num_test_per_category);
+            end
+            for i = 1:length(cur_images)
+                cur_image = imread(fullfile(cur_path, cur_images(i).name));
+                cur_image = single(cur_image);
+                if(size(cur_image,3) == 1)
+                    fprintf('grayscale image found %s\n', fullfile(cur_path, cur_images(i).name));
+                    cur_image = cat(3,cur_image,cur_image,cur_image);
+                end
+                cur_image = imresize(cur_image, image_size);
+            
+                cur_image = cur_image - averageImage;
+                       
+                % Stack images into a large image_size x 1 x total_images matrix
+                % images.data
+                imdb.images.data(:,:,1:3,image_counter) = cur_image;            
+                imdb.images.labels(  1,image_counter) = category;
+                imdb.images.set(     1,image_counter) = set; %1 for train, 2 for test (val)
+            
+                image_counter = image_counter + 1;
+            end
+        end
+    end
+    </code></pre>
+    <h4>Results</h4>
+    The lowest validation error is 0.13 which means the accuracy is ~87%. 
+    <div align="center">
+        <img src="Images/pre_error.jpg" />
+        <img src="Images/pre_filters.jpg" />
+        <p style="font-size: 24px">NumEpoches = 5</p>
+    </div>
+</div>
+</body>
+</html>

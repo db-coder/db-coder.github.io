@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS 475: Assignment 2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="Dibyendu,db,Dibyendu Mondal,IITB,IIT Bombay">
+	<meta name="description" content="CS 475: Assignment 1">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.css">
+	<link rel="icon" href="iitb.png" type="image/x-icon"/>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<a class="navbar-brand" style="position:absloute;width: 100%;left: 0;text-align: center;margin: auto;">CS 475: Assignment 2 Report</a>	
+	</nav>
+	<div class="container" style="padding-top:100px">
+		<h4 class="text-center"><u>Modelling-Viewing Pipeline : Viewing</u></h4>
+		<h4>The transformations we made: </h4>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="wcs.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">World Coordinate System</h6>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="vcs.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">View Coordinate System</h6>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="ccs.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Cube Coordinate System</h6>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="ndcs.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Normalized Device Coordinate System</h6>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
+			<img src="dcs.png" width="304" class="img-responsive img-rounded">
+			<h6 class="text-center text-primary lead">Device Coordinate System</h6>
+		</div>
+	</div>
+	<div class="container">
+		<h4>Basic Working Instructions: </h4>
+		<ul style="line-height:2.5em">
+			<li><h4>First we run the Makefile using <code>make</code> and the run the executable <code>./Assignment2</code>.</h4></li>
+			<li><h4>The scene file 'myscene.scn' is automatically loaded. So we have the 3 models and the frustum.</h4></li>
+			<li><h4>We can rotate all the objects by pressing the keys <kbd>W</kbd>, <kbd>S</kbd>, <kbd>A</kbd>, <kbd>D</kbd>, <kbd>Q</kbd>, <kbd>E</kbd>.</h4></li>
+			<li><h4>We can go to VCS by pressing <kbd>2</kbd>.</h4></li>
+			<li><h4>We can go to CCS by pressing <kbd>3</kbd>.</h4></li>
+			<li><h4>We can go to NDCS by pressing <kbd>4</kbd>.</h4></li>
+			<li><h4>We can go to DCS by pressing <kbd>5</kbd>.</h4></li>
+			<li><h4>We can go back to WCS by pressing <kbd>1</kbd>.</h4></li>
+		</ul>
+	</div>
+	<div class="container">
+		<h4>Team Members: </h4>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="Dibyendu.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Dibyendu Mondal</h4>
+			<h4>130050046</h4>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+			<img src="anand.jpg" width="152" class="img-responsive img-rounded">
+			<h4>Anand Bhoraskar</h4>
+			<h4>130050025</h4>
+		</div>
+	</div>
+</body>
+</html>
